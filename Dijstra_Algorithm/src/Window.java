@@ -9,9 +9,11 @@ public class Window extends JPanel {
 
     public void WindowConfiguration(JFrame windowFrame) {
 
-        JLabel mapa_title = new JLabel();
-        ImageIcon mapa_Brasil = new ImageIcon("C:\\Users\\mateus\\ws-java\\Dijkstra-Algorithm\\Dijkstra-Algorithm\\Dijstra_Algorithm\\utils\\image\\mapaBrasil.jpg");
-        mapa_title.setText("ESTADOS DO BRASIL");
+        JLabel mapa_title = new JLabel("Mapa do Brasil");
+        ImageIcon mapa_Brasil = new ImageIcon(
+                "C:\\Users\\mateus\\ws-java\\Dijkstra-Algorithm\\Dijkstra-Algorithm\\Dijstra_Algorithm\\utils\\image\\mapaBrasil.jpg");
+
+        mapa_title.setBounds(360, 0, 84, 20);
         windowFrame.add(mapa_title);
 
         windowFrame.add(new JLabel(mapa_Brasil));
