@@ -9,22 +9,22 @@ import javax.swing.JPanel;
 public class Window extends JPanel {
 
     public void WindowConfiguration(JFrame windowFrame) {
-        Color colorFundo = new Color(255, 255, 255);
         JPanel painel = new JPanel();
         JLabel mapa_title = new JLabel("Mapa do Brasil");
         ImageIcon mapa_Brasil = new ImageIcon(
                 "C:\\Users\\mateus\\ws-java\\Dijkstra-Algorithm\\Dijkstra-Algorithm\\Dijstra_Algorithm\\utils\\image\\mapaBrasil.jpg");
 
+        //Window Components
         mapa_title.setBounds(360, 0, 84, 20);
         windowFrame.add(mapa_title);
-        painel.setBackground(Color.BLACK);
         windowFrame.add(painel);
         windowFrame.add(new JLabel(mapa_Brasil));
+
+        //Window Configuration
         windowFrame.setVisible(true);
         windowFrame.setSize(800, 800);
         windowFrame.setResizable(false);
         windowFrame.setTitle("PathFinder");
         windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        windowFrame.setBackground(getBackground());
     }
 }
