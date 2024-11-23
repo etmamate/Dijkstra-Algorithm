@@ -125,7 +125,7 @@ public class DijkstraVisualization extends JPanel {
         String destino = (String) JOptionPane.showInputDialog(
                 frame, "Selecione o estado de destino:",
                 "Entrada", JOptionPane.PLAIN_MESSAGE, null, ESTADOS, ESTADOS[1]);
-        
+
         if (origem != null && destino != null) {
             // Executa o algoritmo de Dijkstra para encontrar o menor caminho
             menorCaminho = dijkstra(Arrays.asList(ESTADOS).indexOf(origem), Arrays.asList(ESTADOS).indexOf(destino));
@@ -178,7 +178,7 @@ public class DijkstraVisualization extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        setBackground(new Color(3,2,8)); //Cor de fundo
+        setBackground(new Color(3, 2, 8)); // Cor de fundo
 
         for (int i = 0; i < NUM_NODOS; i++) {
             for (int j = i + 1; j < NUM_NODOS; j++) {
@@ -213,7 +213,6 @@ public class DijkstraVisualization extends JPanel {
             g.fillOval(p.x - 10, p.y - 10, 20, 20);
             g.setColor(Color.WHITE);
             g.drawString(ESTADOS[i], p.x - 10, p.y + 25);
-            g.drawString(ESTADOS[i], p.x - 11, p.y + 26);
         }
     }
 
