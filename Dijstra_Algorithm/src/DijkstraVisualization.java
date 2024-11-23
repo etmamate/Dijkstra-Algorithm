@@ -71,10 +71,12 @@ public class DijkstraVisualization extends JPanel {
         adicionarAresta("BA", "PE", 19);
         adicionarAresta("BA", "AL", 37);
         adicionarAresta("BA", "SE", 29);
+        adicionarAresta("BA", "MG", 16);
         adicionarAresta("SE", "AL", 13);
         adicionarAresta("PE", "PB", 10);
         adicionarAresta("PE", "CE", 19);
         adicionarAresta("PE", "PI", 32);
+        adicionarAresta("PE", "AL", 16);
         adicionarAresta("PB", "RN", 10);
         adicionarAresta("PB", "CE", 11);
         adicionarAresta("RN", "CE", 19);
@@ -96,6 +98,8 @@ public class DijkstraVisualization extends JPanel {
         adicionarAresta("RO", "AC", 18);
         adicionarAresta("AM", "RR", 33);
         adicionarAresta("AM", "AC", 35);
+        adicionarAresta("AM", "RO", 15);
+        adicionarAresta("AM", "MT", 18);
     }
 
     private void adicionarAresta(String origem, String destino, int peso) {
@@ -107,9 +111,11 @@ public class DijkstraVisualization extends JPanel {
     }
 
     private void configurarJanela() {
-        JFrame frame = new JFrame("Algoritmo de Dijkstra - Visualização");
+        JFrame frame = new JFrame("Algoritmo de Dijkstra");
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        frame.setSize(800, 900);
+        frame.setResizable(false);
         frame.add(this);
         frame.setVisible(true);
 
@@ -170,6 +176,9 @@ public class DijkstraVisualization extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+
+        setBackground(new Color(3,2,8)); //Cor de fundo
 
         for (int i = 0; i < NUM_NODOS; i++) {
             for (int j = i + 1; j < NUM_NODOS; j++) {
@@ -178,8 +187,19 @@ public class DijkstraVisualization extends JPanel {
                     Point p2 = POSICOES_FIXAS[j];
                     g.setColor(menorCaminho.contains(i) && menorCaminho.contains(j) &&
                             Math.abs(menorCaminho.indexOf(i) - menorCaminho.indexOf(j)) == 1
-                                    ? Color.RED
+                                    ? Color.BLUE
                                     : Color.GRAY);
+                    g2.setStroke(new BasicStroke(8));
+                    g.drawLine(p1.x, p1.y, p2.x, p2.y);
+                }
+                if (grafo[i][j] > 0) {
+                    Point p1 = POSICOES_FIXAS[i];
+                    Point p2 = POSICOES_FIXAS[j];
+                    g.setColor(menorCaminho.contains(i) && menorCaminho.contains(j) &&
+                            Math.abs(menorCaminho.indexOf(i) - menorCaminho.indexOf(j)) == 1
+                                    ? Color.WHITE
+                                    : Color.GRAY);
+                    g2.setStroke(new BasicStroke(4));
                     g.drawLine(p1.x, p1.y, p2.x, p2.y);
                 }
             }
@@ -187,9 +207,9 @@ public class DijkstraVisualization extends JPanel {
 
         for (int i = 0; i < NUM_NODOS; i++) {
             Point p = POSICOES_FIXAS[i];
-            g.setColor(Color.BLUE);
+            g.setColor(Color.GREEN);
             g.fillOval(p.x - 10, p.y - 10, 20, 20);
-            g.setColor(Color.BLACK);
+            g.setColor(Color.WHITE);
             g.drawString(ESTADOS[i], p.x - 10, p.y + 25);
         }
     }
