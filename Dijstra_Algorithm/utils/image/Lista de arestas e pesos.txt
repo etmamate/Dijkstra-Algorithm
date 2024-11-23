@@ -1,0 +1,114 @@
+lista de ligações de arestas e pesos:
+RS -> SC = 31
+
+SC -> PR = 21
+
+PR -> SP = 10
+PR -> MS = 23
+
+SP -> PR = 10
+SP -> MS = 14
+SP -> RJ = 27
+SP -> MG = 24
+
+MS -> MT = 11
+MS -> GO = 16
+MS -> MG = 15
+MS -> SP = 14
+MS -> PR = 23
+
+RJ -> SP = 27
+RJ -> MG = 11
+RJ -> ES = 24
+
+ES -> BA = 23 
+ES -> RJ = 24
+ES -> MG = 18
+
+BA -> ES = 23
+BA -> MG = 16
+BA -> GO = 18
+BA -> TO = 10
+BA -> PI = 27
+BA -> PE = 19
+BA -> AL = 37
+BA -> SE = 29
+
+SE -> AL = 13
+SE -> BA = 29
+
+AL -> SE = 13
+AL -> PE = 16
+
+PE -> PB = 10
+PE -> CE = 19
+PE -> PI = 32
+PE -> BA = 19
+PE -> AL = 16
+
+PB -> RN = 10
+PB -> PE = 10
+PB -> CE = 11
+
+RN -> PB = 10
+RN -> CE = 19
+
+CE -> PI = 15
+CE -> PE = 19
+CE -> PB = 11
+CE -> RN = 19
+
+PI -> MA = 13
+PI -> TO = 11
+PI -> BA = 27
+PI -> PE = 32
+PI -> CE = 15
+
+MA -> PI = 13
+MA -> PA = 15
+MA -> TO = 34
+
+PA -> AP = 27
+PA -> RR = 27
+PA -> AM = 12
+PA -> MT = 28
+PA -> TO = 13
+PA -> MA = 15
+
+AP -> PA = 27
+
+AM -> RR = 33
+AM -> PA = 12
+AM -> MT = 18
+AM -> RO = 15
+AM -> AC = 35
+
+RR -> AM = 33
+RR -> PA = 27
+
+AC -> AM = 35
+AC -> RO = 18
+
+RO -> AC = 18
+RO -> AM = 15
+RO -> MT = 40
+
+MT -> RO = 40
+MT -> AM = 18
+MT -> PA = 28
+MT -> TO = 23
+MT -> GO = 28
+MT -> MS = 11
+
+GO -> MT = 28
+GO -> TO = 20
+GO -> BA = 18
+GO -> MG = 29
+GO -> MS = 16
+
+TO -> PA = 13
+TO -> MA = 34
+TO -> PI = 11
+TO -> BA = 10
+TO -> GO = 20
+TO -> MT = 23
