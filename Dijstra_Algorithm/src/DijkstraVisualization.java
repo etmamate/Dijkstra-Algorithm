@@ -187,7 +187,7 @@ public class DijkstraVisualization extends JPanel {
                     Point p2 = POSICOES_FIXAS[j];
                     g.setColor(menorCaminho.contains(i) && menorCaminho.contains(j) &&
                             Math.abs(menorCaminho.indexOf(i) - menorCaminho.indexOf(j)) == 1
-                                    ? Color.GREEN
+                                    ? Color.BLUE
                                     : Color.GRAY);
                     g2.setStroke(new BasicStroke(8));
                     g.drawLine(p1.x, p1.y, p2.x, p2.y);
@@ -198,7 +198,7 @@ public class DijkstraVisualization extends JPanel {
 
                     g.setColor(menorCaminho.contains(i) && menorCaminho.contains(j) &&
                             Math.abs(menorCaminho.indexOf(i) - menorCaminho.indexOf(j)) == 1
-                                    ? Color.YELLOW
+                                    ? Color.PINK
                                     : Color.DARK_GRAY);
                     g2.setStroke(new BasicStroke(4));
                     g.drawLine(p1.x, p1.y, p2.x, p2.y);
@@ -211,8 +211,9 @@ public class DijkstraVisualization extends JPanel {
 
             g.setColor(Color.WHITE);
             g.fillOval(p.x - 10, p.y - 10, 20, 20);
-            g.setColor(Color.WHITE);
-            g.drawString(ESTADOS[i], p.x - 10, p.y + 25);
+
+            g.setColor(Color.GREEN);
+            g.drawString(ESTADOS[i], p.x - 10, p.y + 26);
         }
     }
 
