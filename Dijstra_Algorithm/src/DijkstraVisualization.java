@@ -181,6 +181,7 @@ public class DijkstraVisualization extends JPanel {
         }
         caminho.add(origem);
         Collections.reverse(caminho); // Inverte a ordem para ficar origem -> destino.
+        System.out.println();
         return caminho;
     }
 
@@ -192,6 +193,7 @@ public class DijkstraVisualization extends JPanel {
 
         setBackground(new Color(3, 2, 8)); // Cor de fundo
 
+        float[] dashPattern = { 10, 10 }; // 10 pixels de linha, 10 pixels de espaço
         // Desenha todas as arestas do grafo.
         for (int i = 0; i < NUM_NODOS; i++) {
             for (int j = i + 1; j < NUM_NODOS; j++) {
@@ -200,9 +202,11 @@ public class DijkstraVisualization extends JPanel {
                     Point p2 = POSICOES_FIXAS[j]; // Posições do vértice j.
                     g.setColor(menorCaminho.contains(i) && menorCaminho.contains(j) &&
                             Math.abs(menorCaminho.indexOf(i) - menorCaminho.indexOf(j)) == 1
-                                    ? Color.BLUE // Define a cor da aresta quando é o menor caminho
+                                    ? Color.red // Define a cor da aresta quando é o menor caminho
                                     : Color.GRAY); // Define a cor da aresta
-                    g2.setStroke(new BasicStroke(8)); // Configura a largura da aresta
+                    // g2.setStroke(new BasicStroke(8)); // Configura a largura da aresta
+                    g2.setStroke(new BasicStroke(8f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dashPattern,
+                            0.0f));
                     g.drawLine(p1.x, p1.y, p2.x, p2.y); // Desenha a aresta
                 }
                 /*
@@ -215,9 +219,11 @@ public class DijkstraVisualization extends JPanel {
 
                     g.setColor(menorCaminho.contains(i) && menorCaminho.contains(j) &&
                             Math.abs(menorCaminho.indexOf(i) - menorCaminho.indexOf(j)) == 1
-                                    ? Color.PINK
+                                    ? Color.WHITE
                                     : Color.DARK_GRAY);
-                    g2.setStroke(new BasicStroke(4));
+                    // g2.setStroke(new BasicStroke(4));
+                    g2.setStroke(new BasicStroke(3f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dashPattern,
+                            0.0f));
                     g.drawLine(p1.x, p1.y, p2.x, p2.y);
                 }
             }
@@ -231,6 +237,8 @@ public class DijkstraVisualization extends JPanel {
             g.fillOval(p.x - 10, p.y - 10, 20, 20); // Desenha o circulo do vertice
 
             g.setColor(Color.GREEN); // Define a cor do texto das Siglas
+            Font boldFont = new Font("Arial", Font.BOLD, 12);
+            g.setFont(boldFont);
             g.drawString(ESTADOS[i], p.x - 10, p.y + 26); // Desenha o nome do estado
         }
     }
